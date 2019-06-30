@@ -1,0 +1,15 @@
+notifications:
+  email:
+    recipients:
+      - dac4158+travis@gmail.com
+    on_success: never
+language: node_js
+install:
+  - yarn
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
+script:
+  - yarn test
+after_success: 'yarn coveralls'

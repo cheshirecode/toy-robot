@@ -1,0 +1,45 @@
+{
+  "name": "flatten-monorepo",
+  "keywords": [
+    "monorepo",
+    "package-management",
+    "yarn-related"
+  ],
+  "version": "0.1.3",
+  "description": "Flatten the dependencies in a Yarn workspace setup, or other sub-folders",
+  "author": "cheshireCode",
+  "repository": "github:cheshirecode/flatten-monorepo",
+  "bugs": {
+    "url": "https://github.com/cheshirecode/flatten-monorepo/issues",
+    "email": "dac4158+github@gmail.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "lib/*.js",
+    "!lib/*.test.js",
+    "index.js",
+    "main.js"
+  ],
+  "bin": "index.js",
+  "scripts": {
+    "start": "yarn test:watch",
+    "test": "istanbul cover tape {.,lib}/*.test.js 2>&1 | tap-nirvana",
+    "test:watch": "tape-watch {.,lib}/*.test.js -w -c 2>&1 -p tap-nirvana",
+    "test:integration": "cd test; ./setup.sh && ./index.js && ./teardown.sh",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
+  },
+  "prepublishOnly": "npm test && npm test:integration",
+  "dependencies": {
+    "commander": "^2.16.0"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "istanbul": "1.1.0-alpha.1",
+    "tap-nirvana": "^1.0.8",
+    "tape": "^4.9.1",
+    "tape-watch": "^2.3.0"
+  }
+}

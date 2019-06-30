@@ -31,7 +31,7 @@ program
   )
   .option(
     '-s, --store',
-    'Create a checksum of input file and store config there to continue next time.',
+    'Create a checksum of input file and store config there to continue next time. Implied by default. Use -r to override.',
   )
   .option('--reset', 'Ignore stored config and start anew.')
   .parse(process.argv);

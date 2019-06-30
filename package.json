@@ -6,7 +6,7 @@
     "processing"
   ],
   "version": "0.0.1",
-  "description": "CLI to process multiple instructions in batches, with the ability to resume",
+  "description": "CLI to process multiple instructions from file or stdin, with the ability to stores config (experimental)",
   "author": "cheshireCode",
   "repository": "github:cheshirecode/toy-robot",
   "bugs": {
@@ -15,7 +15,8 @@
   },
   "license": "UNLICENSE",
   "engines": {
-    "node": ">=8.5"
+    "node": ">=8.5",
+    "yarn": ">= 1.0.0"
   },
   "files": [
     "lib/*.js",

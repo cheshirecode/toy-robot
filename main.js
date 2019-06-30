@@ -23,7 +23,7 @@ const processLineByLine = (filePath, lineCallback, closeCallback) => {
 
 module.exports = async ({
   // root = '.',
-  debug: isDebug = true,
+  debug: isDebug = false,
   store = true,
   file,
   args = [],

@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for robot.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> robot.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.6% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>36/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.59% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>24/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.6% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>36/47</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const DIRECTION_NORTH = 'NORTH';
+const DIRECTION_SOUTH = 'SOUTH';
+const DIRECTION_EAST = 'EAST';
+const DIRECTION_WEST = 'WEST';
+&nbsp;
+class Robot {
+  /* istanbul ignore next */
+  constructor(params = {}) {
+    // lazy dumping of all parameters from constructor to
+    // current instance. Defensive coding could come later
+    // (picking/omitting certain keys e.g. class methods or only allow primitive values to be passed in)
+    Object.assign(
+      this,
+      {
+        // x and y are co-ordinates, starting at 0,0
+        x: 0,
+        y: 0,
+        direction: DIRECTION_NORTH,
+        // grid size is 5x5 by default, but override-able
+        maxX: 5,
+        maxY: 5,
+        // check if placement has already happened, or else
+        // no movement could take place
+        isPlaced: false,
+        // stores all possible directions and used to
+        // rotate a direction to its left or right
+        //     N
+        // W       E
+        //     S
+        directions: [
+          DIRECTION_NORTH,
+          DIRECTION_WEST,
+          DIRECTION_SOUTH,
+          DIRECTION_EAST,
+        ],
+        // count number of processed lines so next time, we could skip them
+        linesToSkip: 0,
+        start: 0,
+      },
+      params,
+    );
+&nbsp;
+    // alas, no direct arrow function in Node without transpiling so
+    // here we manually bind class methods' "this" to the class itself to avoid
+    // using class method as callback and having "this" be something else
+    'setCoords,process,isValidCoords,isValidDirection,save'
+      .split(',')
+      .map(s =&gt; (this[s] = this[s].bind(this)));
+  }
+  /**
+   * Set co-ordinates by coercing to Int
+   * @param {Number} x
+   * @param {Number} y
+   */
+  setCoords(x, y) {
+    this.x = parseInt(x, 10);
+    this.y = parseInt(y, 10);
+  }
+  /**
+   * check if given co-ordinates are valid - positive ints that aren't beyond the grid boundary
+   * @param {Number} x
+   * @param {Number} y
+   * @returns Boolean
+   */
+  isValidCoords(x, y) {
+    return x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp; x &lt;= this.maxX &amp;&amp; y &lt;= this.maxY;
+  }
+  /**
+   * check if given direction is valid, as one of the default values
+   *
+   * @param {String} d
+   * @returns Boolean
+   */
+  isValidDirection(d) {
+    return this.directions.indexOf(d) &gt;= 0;
+  }
+  /* istanbul ignore next */
+  async save(cb) {
+    if (this.savePath) {
+      /* istanbul ignore next */
+      this.isDebug &amp;&amp;
+        console.log(
+          'Saving current config',
+          {
+            x: this.x,
+            y: this.y,
+            direction: this.direction,
+            linesToSkip: this.linesToSkip,
+          },
+          'to',
+          this.savePath,
+        );
+      await new Promise((resolve, reject) =&gt;
+        fs.writeFile(
+          this.savePath,
+          JSON.stringify({
+            x: this.x,
+            y: this.y,
+            direction: this.direction,
+            linesToSkip: this.linesToSkip,
+          }),
+          'utf-8',
+          err =&gt; (err ? reject(err) : resolve()),
+        ),
+      );
+    }
+    if (cb) {
+      cb();
+    }
+  }
+  /**
+   * Process an instruction
+   *
+   * @param {String} str
+   * @returns Boolean|Object whether an instruction was successfully processed
+   * or rejected due to invalid inputs
+   */
+  async process(str) {
+    // to experiment with resume
+    // - uncomment this block
+    // - node ./index.js -f tests/3.txt --reset
+    // - comment it out again
+    // - node ./index.js -f tests/3.txt
+&nbsp;
+    // if (Math.random() &gt; 0.5) {
+    //   throw Error('oops');
+    // }
+    this.start++;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.start &lt;= this.linesToSkip) {
+<span class="cstat-no" title="statement not covered" >      console.log(`${this.start} / ${this.linesToSkip} lines skipped.`);</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+    this.linesToSkip++;
+    const cmd = str.split(' ')[0];
+    const i = this.directions.indexOf(this.direction);
+    const d = this.direction;
+    // strict equality is simplest
+    // more lenient/flexible handling could always be easily added later
+    switch (cmd) {
+      case 'PLACE':
+        const rest = str
+          .substr(cmd.length)
+          .trim()
+          .split(',');
+&nbsp;
+        const [x, y, direction] = rest;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (this.isValidCoords(x, y) &amp;&amp; this.isValidDirection(direction)) {
+          this.setCoords(x, y);
+          this.direction = direction;
+          /* istanbul ignore next */
+          this.isDebug &amp;&amp;
+            console.log(
+              str,
+              `Placed. Currently at ${this.x}, ${this.y}, ${this.direction}.`,
+            );
+          return true;
+        }
+        /* istanbul ignore next */
+        this.isDebug &amp;&amp;
+          console.log(
+            str,
+            `Unable to place. Co-ordinates (${x}, ${y}) are ${
+              this.isValidCoords(x, y) ? '' : 'in'
+            }valid. Direction ${direction} is ${
+              this.isValidDirection(direction) ? '' : 'in'
+            }valid.`,
+          );
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case 'MOVE':
+        // check if moving in the current direction is possible
+        // without going out of bounds
+        let isMovePossible = false;
+        if (
+          (this.direction === DIRECTION_NORTH ||
+<span class="branch-1 cbranch-no" title="branch not covered" >            this.direction === DIRECTION_SOUTH)</span> &amp;&amp;
+          this.isValidCoords(this.x, this.y + 1)
+        ) {
+          this.y++;
+          isMovePossible = true;
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (
+          (this.direction === DIRECTION_EAST ||
+            this.direction === DIRECTION_WEST) &amp;&amp;
+<span class="branch-2 cbranch-no" title="branch not covered" >          this.isValidCoords(this.x + 1, this.y)</span>
+        ) {
+<span class="cstat-no" title="statement not covered" >          this.x++;</span>
+<span class="cstat-no" title="statement not covered" >          isMovePossible = true;</span>
+        }
+        /* istanbul ignore next */
+        this.isDebug &amp;&amp;
+          console.log(
+            str,
+            `${
+              isMovePossible
+                ? 'Successful'
+                : 'Unable to move, would go out of bounds'
+            }. Currently at ${this.x}, ${this.y}, ${this.direction}.`,
+          );
+        return isMovePossible;
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case 'LEFT':
+        // add 1 to current index to find the rotated direction
+        // North -&gt; West -&gt; South -&gt; East -&gt; North
+        // if increasing beyond array length, reset back to 0
+        this.direction = this.directions[
+          i + 1 &gt; this.directions.length - 1 ? <span class="branch-0 cbranch-no" title="branch not covered" >0 </span>: i + 1
+        ];
+        this.isDebug &amp;&amp;
+<span class="branch-1 cbranch-no" title="branch not covered" >          console.log(str, `Rotated from ${d} to ${this.direction}.`);</span>
+        return true;
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case 'RIGHT':
+        // subtract 1 to current index to find the rotated direction
+        // North -&gt; West -&gt; South -&gt; East -&gt; North
+        // if decreasing beyond array length, reset back to the last element
+        this.direction = this.directions[
+          i - 1 &lt; 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >this.directions.length - 1 </span>: i - 1
+        ];
+        this.isDebug &amp;&amp;
+<span class="branch-1 cbranch-no" title="branch not covered" >          console.log(str, `Rotated from ${d} to ${this.direction}.`);</span>
+        return true;
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case 'REPORT':
+        /* istanbul ignore next */
+        this.isDebug &amp;&amp; console.log(str, this.x, this.y, this.direction);
+        return { x: this.x, y: this.y, direction: this.direction };
+<span class="cstat-no" title="statement not covered" >        break;</span>
+<span class="branch-5 cbranch-no" title="branch not covered" >      default:</span>
+        /* istanbul ignore next */
+        this.isDebug &amp;&amp; console.log(str);
+<span class="cstat-no" title="statement not covered" >        break;</span>
+    }
+  }
+}
+module.exports = Robot;
+Object.assign(module.exports, {
+  DIRECTION_NORTH,
+  DIRECTION_WEST,
+  DIRECTION_SOUTH,
+  DIRECTION_EAST,
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jul 01 2019 00:32:21 GMT+0800 (+08)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>

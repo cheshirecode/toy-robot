@@ -1,9 +1,0 @@
-{
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "dummyProps": {
-    "dummyProps-key": "dummyProps-value"
-  }
-}

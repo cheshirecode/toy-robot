@@ -67,22 +67,31 @@ module.exports = async ({
     const fileCheckSum =
       !!store &&
       (await new Promise((resolve, reject) =>
-        fs.readFile(file, 'utf-8', (err, data) => {
+        // https://nodejs.org/api/fs.html#fs_stats_ino
+        // generate a checksum based on metadata is wayfaster than reading in the
+        // whole file - fairly constant time regardless of filesize
+        // with the assumption that same file has unchanged size, create and update timestamps
+        fs.stat(file, (err, { blksize, birthtimeMs, mtimeMs }) => {
           if (err) reject(err);
           else
             resolve(
               crypto
                 .createHash('sha1')
-                .update(data, 'utf8')
+                .update(
+                  JSON.stringify({ blksize, birthtimeMs, mtimeMs }),
+                  'utf8',
+                )
                 .digest('hex'),
             );
         }),
       ));
     /* istanbul ignore next */
     isDebug && console.log('File checksum', fileCheckSum);
+    // if there is a checksum, try to find the previous config file by hardcoded convention
+    // since if the same input file was processed and the config was saved, it should
+    // be the same based on above logic. Same file path gets passed along
+    // to Robot for saving later
     const savePath = fileCheckSum ? `/tmp/toy-robot-${fileCheckSum}` : '';
-    /* istanbul ignore next */
-    isDebug && console.log(`Processing line by line...`);
     const prevConfig =
       !reset && store && fs.existsSync(savePath)
         ? await new Promise((resolve, reject) =>
@@ -99,7 +108,10 @@ module.exports = async ({
       isDebug,
       savePath,
     });
-
+    /* istanbul ignore next */
+    isDebug && console.log(`Created a new Robot...`);
+    /* istanbul ignore next */
+    isDebug && console.log(`Processing line by line...`);
     processLineByLine(file, r.process, () => {
       r.save(() => {
         process.exit(0);

@@ -68,8 +68,8 @@ module.exports = async ({
       !!store &&
       (await new Promise((resolve, reject) =>
         // https://nodejs.org/api/fs.html#fs_stats_ino
-        // generate a checksum based on metadata is wayfaster than reading in the
-        // whole file - fairly constant time regardless of filesize
+        // generate a checksum based on metadata is way faster than reading whole file
+        // metadata should take fairly constant time regardless of filesize
         // with the assumption that same file has unchanged size, create and update timestamps
         fs.stat(file, (err, { blksize, birthtimeMs, mtimeMs }) => {
           if (err) reject(err);
@@ -88,9 +88,8 @@ module.exports = async ({
     /* istanbul ignore next */
     isDebug && console.log('File checksum', fileCheckSum);
     // if there is a checksum, try to find the previous config file by hardcoded convention
-    // since if the same input file was processed and the config was saved, it should
-    // be the same based on above logic. Same file path gets passed along
-    // to Robot for saving later
+    // since with a saved config, it should be at the same location
+    // based on checksum logic. Same file path gets passed to Robot for saving later
     const savePath = fileCheckSum ? `/tmp/toy-robot-${fileCheckSum}` : '';
     const prevConfig =
       !reset && store && fs.existsSync(savePath)

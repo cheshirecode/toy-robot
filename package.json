@@ -13,7 +13,7 @@
     "url": "https://github.com/cheshirecode/toy-robot/issues",
     "email": "dac4158+github@gmail.com"
   },
-  "license": "UNLICENSE",
+  "license": "Unlicense",
   "engines": {
     "node": ">=8.5",
     "yarn": ">= 1.0.0"
@@ -27,8 +27,8 @@
   "bin": "index.js",
   "scripts": {
     "start": "yarn test:watch",
-    "test": "istanbul cover tape {.,lib}/*.test.js 2>&1 | tap-nirvana",
-    "test:watch": "tape-watch {.,lib}/*.test.js -w -c 2>&1 -p tap-nirvana",
+    "test": "istanbul cover tape ./*.test.js 2>&1 | tap-nirvana",
+    "test:watch": "tape-watch ./*.test.js -w -c 2>&1 -p tap-nirvana",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "prepublishOnly": "npm test && npm test:integration",

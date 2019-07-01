@@ -9,10 +9,10 @@ A simple CLI to demonstrate a few concepts:
 
 ## Setup
 Requires
-- Node LTS 8.11.2 and above.
+- Node LTS
 - `yarn` 
 
-### Install dependencies
+### Installation
 Run `yarn` at root folder
 
 ### Usage

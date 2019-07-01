@@ -13,12 +13,13 @@ const expectedLastLines = [
   `{ x: 4, y: 5, direction: '${DIRECTION_EAST}', linesToSkip: 10 }`,
   `{ x: 5, y: 5, direction: '${DIRECTION_WEST}', linesToSkip: 10 }`,
 ];
-
+const runWithPath = (path, isReset = true) =>
+  spawn('./index.js', ['-f', path, `${isReset ? '--reset ' : ''}`, '-d'], {
+    shell: true,
+  });
 test(`Test for expected last line output, with reset flag`, t => {
   testFiles.map((name, i) => {
-    const a = spawn('./index.js', ['-f', `tests/${name}`, '--reset'], {
-      shell: true,
-    });
+    const a = runWithPath(`tests/${name}`);
     const rl = readline.createInterface({ input: a.stdout });
     rl.on('line', line => {
       if (line.indexOf('Saving current config') >= 0) {
@@ -35,24 +36,20 @@ test(`Test for expected last line output, with reset flag`, t => {
   });
 });
 
-test(`Test for expected last line output, with no reset flag`, t => {
+test(`Test for expected last line output, with no reset flag`, t1 => {
   testFiles.map((name, i) => {
-    const a = spawn('./index.js', ['-f', `tests/${name}`, '--reset'], {
-      shell: true,
-    });
+    const a = runWithPath(`tests/${name}`);
     a.on('close', () => {
       if (i >= testFiles.length - 1) {
-        testFiles.map((name, j) => {
-          const b = spawn('./index.js', ['-f', `tests/${name}`], {
-            shell: true,
-          });
+        testFiles.map((n, j) => {
+          const b = runWithPath(`tests/${n}`);
           const rl = readline.createInterface({ input: b.stdout });
-          rl.on('line', line => {
-            if (line.indexOf('Saving current config') >= 0) {
-              t.equal(
-                line.split('Saving current config ')[1].split(' to ')[0],
+          rl.on('line', l => {
+            if (l.indexOf('Saving current config') >= 0) {
+              t1.equal(
+                l.split('Saving current config ')[1].split(' to ')[0],
                 expectedLastLines[j],
-                `Expect ${name} with stored and reused config to still produce ${
+                `Expect ${n} with stored and reused config to still produce ${
                   expectedLastLines[j]
                 }`,
               );
@@ -60,7 +57,7 @@ test(`Test for expected last line output, with no reset flag`, t => {
           });
           b.on('close', () => {
             if (j >= testFiles.length - 1) {
-              t.end();
+              t1.end();
             }
           });
         });

@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">96.77% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>30/31</span>
+        <span class='fraction'>31/31</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">76.92% </span>
+        <span class="strong">92.31% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>10/13</span>
+        <span class='fraction'>12/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">90.91% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>10/11</span>
+        <span class='fraction'>11/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">96.77% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>30/31</span>
+        <span class='fraction'>31/31</span>
       </div>
     </div>
   </div>
@@ -110,13 +110,7 @@
 65
 66
 67
-68
-69
-70
-71
-72
-73
-74</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+68</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,14 +126,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">38x</span>
@@ -159,14 +151,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">38x</span>
@@ -204,15 +192,13 @@ const expectedLastLines = [
   `{ x: 4, y: 5, direction: '${DIRECTION_EAST}', linesToSkip: 10 }`,
   `{ x: 5, y: 5, direction: '${DIRECTION_WEST}', linesToSkip: 10 }`,
 ];
-const runWithPath = <span class="fstat-no" title="function not covered" >(p</span>ath, isReset = <span class="branch-0 cbranch-no" title="branch not covered" >true)</span> =&gt;
-<span class="cstat-no" title="statement not covered" >  spawn('./index.js', ['-f', path, `${isReset ? '--reset ' : ''}`, '-d'], {</span>
+const runWithPath = (path, isReset = true) =&gt;
+  spawn('./index.js', ['-f', path, `${isReset ? '--reset ' : <span class="branch-1 cbranch-no" title="branch not covered" >''}</span>`, '-d'], {
     shell: true,
   });
 test(`Test for expected last line output, with reset flag`, t =&gt; {
   testFiles.map((name, i) =&gt; {
-    const a = spawn('./index.js', ['-f', `tests/${name}`, '-d', '--reset'], {
-      shell: true,
-    });
+    const a = runWithPath(`tests/${name}`);
     const rl = readline.createInterface({ input: a.stdout });
     rl.on('line', line =&gt; {
       if (line.indexOf('Saving current config') &gt;= 0) {
@@ -231,15 +217,11 @@ test(`Test for expected last line output, with reset flag`, t =&gt; {
 &nbsp;
 test(`Test for expected last line output, with no reset flag`, t1 =&gt; {
   testFiles.map((name, i) =&gt; {
-    const a = spawn('./index.js', ['-f', `tests/${name}`, '-d', '--reset'], {
-      shell: true,
-    });
+    const a = runWithPath(`tests/${name}`);
     a.on('close', () =&gt; {
       if (i &gt;= testFiles.length - 1) {
         testFiles.map((n, j) =&gt; {
-          const b = spawn('./index.js', ['-f', `tests/${n}`, '-d'], {
-            shell: true,
-          });
+          const b = runWithPath(`tests/${n}`);
           const rl = readline.createInterface({ input: b.stdout });
           rl.on('line', l =&gt; {
             if (l.indexOf('Saving current config') &gt;= 0) {
@@ -268,7 +250,7 @@ test(`Test for expected last line output, with no reset flag`, t1 =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jul 01 2019 10:38:00 GMT+0800 (+08)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jul 01 2019 10:46:33 GMT+0800 (+08)
 </div>
 </div>
 <script src="prettify.js"></script>

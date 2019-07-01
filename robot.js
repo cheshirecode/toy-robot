@@ -178,8 +178,7 @@ class Robot {
         ) {
           this.y++;
           isMovePossible = true;
-        }
-        if (
+        } else if (
           (this.direction === DIRECTION_EAST ||
             this.direction === DIRECTION_WEST) &&
           this.isValidCoords(this.x + 1, this.y)

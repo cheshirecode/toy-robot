@@ -39,7 +39,7 @@
     "coveralls": "^3.0.2",
     "istanbul": "1.1.0-alpha.1",
     "tap-nirvana": "^1.0.8",
-    "tape": "^4.9.1",
+    "tape": "^5.0.0",
     "tape-watch": "^2.3.0"
   }
 }

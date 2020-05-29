@@ -33,7 +33,7 @@
   },
   "prepublishOnly": "npm test && npm test:integration",
   "dependencies": {
-    "commander": "^2.16.0"
+    "commander": "^2.20.3"
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
